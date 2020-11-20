@@ -1,5 +1,3 @@
-Covid-19 Cases vs Tests Analysis
-================
 
 -   author: Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma
 
@@ -109,3 +107,7 @@ Max Roser, Esteban Ortiz-Ospina, Hannah Ritchie, and Joe Hasell. 2020.
 </div>
 
 </div>
+=======
+# dsci-522-group-24
+Group Project Repo for DSCI-522 in the UBC-MDS program
+
