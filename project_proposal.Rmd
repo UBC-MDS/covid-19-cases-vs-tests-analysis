@@ -1,0 +1,23 @@
+---
+title: "project_proposal"
+author: "Neel Phaterpekar"
+date: "20/11/2020"
+output: html_document
+---
+
+
+## 3. Analysis Plan
+
+We will be performing a two-tailed hypothesis test comparing the difference in the ratio of the daily increase in cases to the daily tests performed. We have coined this term as the 'response ratio'. Prior to hypothesis testing, we will perform extensive exploratory data analysis to determine what the best measure of central tendancy is within our two groups (Canada and USA). We will create a new response ratio column in the data set by dividing the daily new cases by the number of test on that date. We will explore the distribution of the data to check our samples are normally distributed and to ensure that we have sufficient observations to obtain a strong sample size. Our null hypothesis will be that there is no difference in the mean response ratio between Canada and USA (ie the ratios are equal). Our alternative hypothsis will be that the ratios are not equal. Furthermore, we will contstruct a 95% confidence interval to indicate the range that our sample estimate falls under. 
+
+## 4. EDA 
+
+We will create a summary table that explores the mean response ratio between the two groups that will be used as our estimate. We can also understand the spread of the data and well as if the data is skewed by considering the standard deviation and median. A simple bar chart comparing the group means would be an initial indicator of whether the samples means are different.
+
+
+## 5 Sharing results
+
+Furthermore, could potentally create a violin plot that displays the distribution as well as the 95% confidence interval that the estimate falls under. A good table to display will be the tidy version of of 95% two-tailed hypothesis test. 
+
+
+
