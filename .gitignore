@@ -17,3 +17,6 @@
 
 # R Environment Variables
 .Renviron
+
+# Byte-compiled/optimized files
+__pycache__/
