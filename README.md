@@ -6,16 +6,16 @@ Covid-19 Cases vs Tests Analysis
 ## Introduction
 
 The data set used in this project comes from the Our World in Data
-COVID-19 Database created by Hannah Richie et al. This data set examines
-the impact of COVID-19 on countries all over the world, where daily
-statistics pertaining to the pandemic from over 200 countries have been
-recorded each day since \_\_\_\_\_. Each row in the data set represents
-a date in a country, where measurements like total cases, new daily
-cases, hospital admission rates etc. are recorded. Data has been
-collected in conjunction with the World Health Organization (WHO), the
-European Center for Disease Prevention and Control (ECDC) and is
-available on [Our World in Data](https://ourworldindata.org/coronavirus)
-and raw data can be found
+COVID-19 Database created by Hannah Richie et al. (Max Roser and Hasell
+2020) This data set examines the impact of COVID-19 on countries all
+over the world, where daily statistics pertaining to the pandemic from
+over 200 countries have been recorded each day since \_\_\_\_\_. Each
+row in the data set represents a date in a country, where measurements
+like total cases, new daily cases, hospital admission rates etc. are
+recorded. Data has been collected in conjunction with the World Health
+Organization (WHO), the European Center for Disease Prevention and
+Control (ECDC) and is available on [Our World in
+Data](https://ourworldindata.org/coronavirus) and raw data can be found
 [here](https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv).
 
 With this data, we ask whether there is a difference in the new daily
@@ -84,7 +84,6 @@ project: (Timbers 2020)
     -   tidyverse==1.3.0
     -   broom==0.7.1
     -   infer==0.5.3
-    -   ggplot2==3.3.2
     -   cowplot==1.1.0
 
 ## License
@@ -95,6 +94,13 @@ project, please provide attribution and link to this repository.
 # References
 
 <div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-owidcoronavirus" class="csl-entry">
+
+Max Roser, Esteban Ortiz-Ospina, Hannah Ritchie, and Joe Hasell. 2020.
+“Coronavirus Pandemic (COVID-19).” *Our World in Data*.
+
+</div>
 
 <div id="ref-dsci-522" class="csl-entry">
 
