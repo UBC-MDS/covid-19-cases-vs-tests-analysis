@@ -68,7 +68,7 @@ the groups is statistically significant.
 To replicate the analysis, clone this GitHub repository, install the
 [dependencies](#dependencies) listed below, and run the following
 commands at the command line/terminal from the root directory of this
-project: (Timbers 2020)
+project:
 
     python src/download_data.py --url=https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv --path=data/processed/covid19.csv
     Rscript src/download_data.R --url=https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv --path=data/processed/covid19.csv
@@ -91,8 +91,11 @@ project: (Timbers 2020)
 
 ## License
 
-If you want to re-use/re-mix the analysis and the materials used in this
-project, please provide attribution and link to this repository.
+The materials on analysis about Covid-19 mean response ratio for Canada
+and USA are licensed under the MIT License (Copyright (c) 2020 Master of
+Data Science at the University of British Columbia). If you want to
+re-use/re-mix the analysis and the materials used in this project,
+please provide attribution and link to this repository.
 
 # References
 
@@ -102,14 +105,6 @@ project, please provide attribution and link to this repository.
 
 Max Roser, Esteban Ortiz-Ospina, Hannah Ritchie, and Joe Hasell. 2020.
 “Coronavirus Pandemic (COVID-19).” *Our World in Data*.
-
-</div>
-
-<div id="ref-dsci-522" class="csl-entry">
-
-Timbers, Tiffany. 2020. “DSCI 522: Data Science Workflows.” Vancouver,
-Canada: University of British Columbia, Master of Data Science.
-<https://github.ubc.ca/MDS-2020-21/DSCI_522_dsci-workflows_students>.
 
 </div>
 
