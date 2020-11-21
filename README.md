@@ -78,6 +78,8 @@ project: (Timbers 2020)
 -   Python 3.8.5 and Python packages:
     -   docopt==0.6.2
     -   pandas==1.1.4
+    -   numpy
+    -   altair
 -   R version 3.6.1 and R packages:
     -   knitr==1.29
     -   readr==1.3.1
@@ -85,6 +87,7 @@ project: (Timbers 2020)
     -   broom==0.7.1
     -   infer==0.5.3
     -   cowplot==1.1.0
+    -   ggplot2
 
 ## License
 
