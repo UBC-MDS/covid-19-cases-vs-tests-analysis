@@ -1,5 +1,5 @@
 
--   author: Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma
+-   Authors: Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma
 
 ## Introduction
 
@@ -16,9 +16,9 @@ and Control (ECDC) and is available on [Our World in
 Data](https://ourworldindata.org/coronavirus) and raw data can be found
 [here](https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv).
 
-With this data, we ask whether there is a difference in the new daily
-tests performed:new daily cases ratio between Canada and the United
-States. Both of these North American countries have been hit hard by the
+With this data,we ask whether there is a difference in the ratio of the 
+new daily tests performed to the new daily cases between Canada and the 
+United States. Both of these North American countries have been hit hard by the
 pandemic, but have taken different approaches in response. This question
 is of interest as it will provide insight into whether the number of
 daily tests being performed is meeting the demand of new daily cases in
@@ -28,7 +28,7 @@ the pandemic. This analysis may implicate a certain country as having a
 more robust response strategy to the pandemic, which could then be
 implemented in the future.
 
-We will be performing a two-tailed hypothesis test using a 2 sample
+We will be performing a two-tailed hypothesis test using a variant of the 2 sample
 t-test to compare the difference in the mean ratio of the daily new
 tests performed to the daily cases. We have coined this term as the
 ‘response ratio.’ Prior to hypothesis testing, we will perform extensive
