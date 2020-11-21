@@ -81,7 +81,11 @@ project: (Timbers 2020)
 -   R version 3.6.1 and R packages:
     -   knitr==1.29
     -   readr==1.3.1
+    -   tidyverse==1.3.0
+    -   broom==0.7.1
+    -   infer==0.5.3
     -   ggplot2==3.3.2
+    -   cowplot==1.1.0
 
 ## License
 
