@@ -110,4 +110,3 @@ Max Roser, Esteban Ortiz-Ospina, Hannah Ritchie, and Joe Hasell. 2020.
 
 </div>
 
-
