@@ -1,3 +1,4 @@
+# Covid-19 Cases vs Tests Analysis
 
 # Covid-19 Cases vs Tests Analysis
 
@@ -18,7 +19,7 @@ and Control (ECDC) and is available on [Our World in
 Data](https://ourworldindata.org/coronavirus) and raw data can be found
 [here](https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv).
 
-With this data,we ask whether there is a difference in the ratio of the 
+With this data, we ask whether there is a difference in the ratio of the 
 new daily tests performed to the new daily cases between Canada and the 
 United States. Both of these North American countries have been hit hard by the
 pandemic, but have taken different approaches in response. This question
@@ -109,4 +110,3 @@ Max Roser, Esteban Ortiz-Ospina, Hannah Ritchie, and Joe Hasell. 2020.
 </div>
 
 </div>
-

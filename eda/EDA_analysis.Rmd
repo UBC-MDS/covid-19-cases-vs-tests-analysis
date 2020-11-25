@@ -1,7 +1,7 @@
 ---
 title: "Exoloratory Data Analysis of the Covid-19 Data Set"
 output: github_document
-bibliography: doc/covid19.bib
+bibliography: ../doc/covid19.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -18,7 +18,7 @@ set.seed(2020)
 
 ## Summary of the data set
 
-The data set used in this project is a collection of the COVID-19 data maintained by [Our World in Data](https://ourworldindata.org/coronavirus). It is updated daily and includes data on confirmed cases, deaths, hospitalizations and testing, as well as other variable of potential interests. This data has been collected, aggregated, and documented by Cameron Appel et al. [\@owidcoronavirus]. Various origins have been sourced. Confirmed cases, deaths, hospitalizations and other related information are sourced from the European Centre for Disease Prevention and Control (ECDC). Testing related information are collected by the Our World in Data team from offical reports. Other sources include United Nations, World Bank and Global Burden of Disease. More information can be found [here](https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-codebook.csv).
+The data set used in this project is a collection of the COVID-19 data maintained by [Our World in Data](https://ourworldindata.org/coronavirus). It is updated daily and includes data on confirmed cases, deaths, hospitalizations and testing, as well as other variable of potential interests. This data has been collected, aggregated, and documented by Cameron Appel et al. [@owidcoronavirus]. Various origins have been sourced. Confirmed cases, deaths, hospitalizations and other related information are sourced from the European Centre for Disease Prevention and Control (ECDC). Testing related information are collected by the Our World in Data team from offical reports. Other sources include United Nations, World Bank and Global Burden of Disease. More information can be found [here](https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-codebook.csv).
 
 ## EDA Table
 
@@ -33,7 +33,7 @@ The mean and median ratio for the USA are close to each other, which suggests th
 The standard deviation of Canada is quite large, compared with the mean and median ratio. It indicates that the response ratio in Canada is more widely spread out. The standard deviation of the USA is a lot smaller, which suggests that more of the ratio is clustered around the mean. It should be noted that the standard deviation might have been affected by data in the early stage of the pandemic, as tests were not fully developed and new cases were only detected within a few communities.
 
 ```{r EDA Table}
-covid_all_country <-  read_csv("data/owid-covid-data.csv", guess_max = 5000)
+covid_all_country <-  read_csv("../data/owid-covid-data.csv", guess_max = 5000)
 
 covid_CAN_USA <- covid_all_country %>% 
     filter(iso_code=="CAN"| iso_code =="USA") %>% 
@@ -111,3 +111,5 @@ covid_CAN_USA_plot +
 Figure 3. Violin Plot for Distribution of Response Ratio of Canada and USA (Removed Outliers)
 
 We can see that the response ratio of USA are mostly clustered around the mean while the response ratio of Canada are more widely spread.
+
+# References

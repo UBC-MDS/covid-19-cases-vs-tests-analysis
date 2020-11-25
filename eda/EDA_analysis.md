@@ -8,13 +8,13 @@ maintained by [Our World in
 Data](https://ourworldindata.org/coronavirus). It is updated daily and
 includes data on confirmed cases, deaths, hospitalizations and testing,
 as well as other variable of potential interests. This data has been
-collected, aggregated, and documented by Cameron Appel et
-al. \[@owidcoronavirus\]. Various origins have been sourced. Confirmed
-cases, deaths, hospitalizations and other related information are
-sourced from the European Centre for Disease Prevention and Control
-(ECDC). Testing related information are collected by the Our World in
-Data team from offical reports. Other sources include United Nations,
-World Bank and Global Burden of Disease. More information can be found
+collected, aggregated, and documented by Cameron Appel et al. (Max Roser
+and Hasell 2020). Various origins have been sourced. Confirmed cases,
+deaths, hospitalizations and other related information are sourced from
+the European Centre for Disease Prevention and Control (ECDC). Testing
+related information are collected by the Our World in Data team from
+offical reports. Other sources include United Nations, World Bank and
+Global Burden of Disease. More information can be found
 [here](https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-codebook.csv).
 
 ## EDA Table
@@ -55,7 +55,7 @@ data in the early stage of the pandemic, as tests were not fully
 developed and new cases were only detected within a few communities.
 
 ``` r
-covid_all_country <-  read_csv("data/owid-covid-data.csv", guess_max = 5000)
+covid_all_country <-  read_csv("../data/owid-covid-data.csv", guess_max = 5000)
 
 covid_CAN_USA <- covid_all_country %>% 
     filter(iso_code=="CAN"| iso_code =="USA") %>% 
@@ -156,3 +156,16 @@ USA (Removed Outliers)
 
 We can see that the response ratio of USA are mostly clustered around
 the mean while the response ratio of Canada are more widely spread.
+
+# References
+
+<div id="refs" class="references hanging-indent">
+
+<div id="ref-owidcoronavirus">
+
+Max Roser, Esteban Ortiz-Ospina, Hannah Ritchie, and Joe Hasell. 2020.
+“Coronavirus Pandemic (Covid-19).” *Our World in Data*.
+
+</div>
+
+</div>
