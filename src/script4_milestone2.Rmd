@@ -52,9 +52,6 @@ shapiro.test(can_data$inverse_ratio)
 ```
 
 
-
-
-
 ```{r}
 # Manually calculating estimates 
 
@@ -93,7 +90,7 @@ covid_CAN_USA_plot
     $H_a$: The mean response ratio in Canada is **not** equal to the mean response ratio in the United States
 
 
-```{r}
+```{r welch test}
 
 welch_test <- t.test( response_ratio ~ location, data = covid_CAN_USA)
 tidy(welch_test)
@@ -101,9 +98,75 @@ tidy(welch_test)
 ```
 
 
-```{r}
+```{r wilcox test}
 wilcox_test <- wilcox.test(response_ratio ~ location, data=covid_CAN_USA)
 wilcox_test %>% tidy()
 
 ```
+
+```{r simulation based approach - mean}
+ratio_means <- covid_CAN_USA %>% 
+  select(location, response_ratio) %>% 
+  drop_na() %>% 
+  group_by(location) %>% 
+  nest() %>% 
+  mutate(mean = map_dbl(data, ~mean(.x$response_ratio)),
+         median = map_dbl(data, ~median(.x$response_ratio)))
+
+test_stat <- diff(ratio_means$mean)
+
+null_dist <- covid_CAN_USA %>% 
+  specify(formula = response_ratio ~ location) %>% 
+  hypothesize(null = 'independence') %>% 
+  generate(reps = 1000, type = 'permute') %>% 
+  calculate(stat = 'diff in means', order = c('Canada', 'United States'))
+
+threshold <- quantile(null_dist$stat, c(0.025, 0.975))
+
+null_dist_plot <- visualize(null_dist) + 
+             geom_vline(xintercept = c(threshold[1], threshold[2]),
+             color = 'black',
+             lty = 4) + 
+     geom_vline(xintercept = test_stat, color = 'red')
+
+
+p_val <- null_dist %>% 
+     get_pvalue(obs_stat = test_stat, direction = 'both')
+
+null_dist_plot
+null_dist
+threshold
+ratio_means
+```
+
+```{r}
+test_stat <- diff(ratio_means$median)
+
+null_dist <- covid_CAN_USA %>% 
+  specify(formula = response_ratio ~ location) %>% 
+  hypothesize(null = 'independence') %>% 
+  generate(reps = 1000, type = 'permute') %>% 
+  calculate(stat = 'diff in medians', order = c('Canada', 'United States'))
+
+threshold <- quantile(null_dist$stat, c(0.025, 0.975))
+
+null_dist_plot <- visualize(null_dist) + 
+             geom_vline(xintercept = c(threshold[1], threshold[2]),
+             color = 'black',
+             lty = 4) + 
+     geom_vline(xintercept = test_stat, color = 'red')
+
+
+p_val <- null_dist %>% 
+     get_pvalue(obs_stat = test_stat, direction = 'both')
+
+null_dist_plot
+null_dist
+threshold
+```
+
+
+
+
+
 
