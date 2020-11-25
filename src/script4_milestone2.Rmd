@@ -20,15 +20,59 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r cars}
+covid_all_country <-  read_csv("../data/owid-covid-data.csv", guess_max = 5000)
+covid_CAN_USA <- covid_all_country %>% 
+    filter(iso_code=="CAN"| iso_code =="USA") %>% 
+    filter(date < "2020-11-01") %>% 
+    filter(new_cases != 0 & new_tests !=0) %>% 
+    select("iso_code", "date", "location", "new_tests", "new_cases") %>% 
+    drop_na(new_tests, new_cases) %>% 
+    mutate(response_ratio = new_tests/new_cases) 
+covid_CAN_USA
+```
+
+```{r}
+# Manually calculating estimates 
+
+covid_stats <- covid_CAN_USA %>%    # for personal reference 
+  group_by(location) %>% 
+  summarise(n = n(),
+            mu = mean(response_ratio),
+            sd = sd (response_ratio),
+            se = sd / (sqrt(n))
+  )
+
+covid_stats
+```
+
+
+```{r}
+covid_CAN_USA_plot <- covid_CAN_USA %>%
+  mutate(across(iso_code, fct_relabel, .fun = str_wrap, width = 30)) %>%
+  ggplot(aes(x = response_ratio, y = iso_code)) +
+  geom_violin(fill = "yellow", 
+              alpha = .1, adjust = .8, trim = FALSE) +
+  stat_summary(fun = mean,
+               colour = "red",
+               geom = "point") +
+  scale_x_continuous(labels = scales::label_number_si()) +
+  labs(title = "COVID-19 Response Ratio - Canada vs USA",
+       subtitle = "Means shown in red",
+       x = "Mean of Response Ratio in both countries",
+       y = "Country")
+covid_CAN_USA_plot
+```
+
+
+1.  $H_0$: The mean response ratio in Canada is equal to the mean response ratio in the United States
+
+    $H_a$: The mean response ratio in Canada is **not** equal to the mean response ratio in the United States
+
+
+```{r}
+
+welch_test <- t.test( response_ratio ~ location, data = covid_CAN_USA)
+tidy(welch_test)
 
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
