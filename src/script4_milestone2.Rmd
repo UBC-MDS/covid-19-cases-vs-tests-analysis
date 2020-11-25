@@ -11,6 +11,7 @@ library(broom)
 library(infer)
 library(knitr)
 library(tidyverse)
+library(car)
 ```
 
 ## R Markdown
@@ -27,9 +28,32 @@ covid_CAN_USA <- covid_all_country %>%
     filter(new_cases != 0 & new_tests !=0) %>% 
     select("iso_code", "date", "location", "new_tests", "new_cases") %>% 
     drop_na(new_tests, new_cases) %>% 
-    mutate(response_ratio = new_tests/new_cases) 
+    mutate(response_ratio = new_tests/new_cases) %>% 
+    mutate(log_response_ratio = log10(response_ratio),
+           inverse_ratio = 1/response_ratio)
 covid_CAN_USA
 ```
+
+
+
+```{r}
+can_data <- covid_CAN_USA %>% 
+  filter(iso_code == 'CAN')
+
+us_data <- covid_CAN_USA %>%
+  filter(iso_code == 'USA') %>% 
+  drop_na()
+qqPlot(can_data$inverse_ratio)
+
+```
+
+```{r}
+shapiro.test(can_data$inverse_ratio)
+```
+
+
+
+
 
 ```{r}
 # Manually calculating estimates 
@@ -51,7 +75,7 @@ covid_CAN_USA_plot <- covid_CAN_USA %>%
   mutate(across(iso_code, fct_relabel, .fun = str_wrap, width = 30)) %>%
   ggplot(aes(x = response_ratio, y = iso_code)) +
   geom_violin(fill = "yellow", 
-              alpha = .1, adjust = .8, trim = FALSE) +
+              alpha = .1, adjust = .8, trim = TRUE) +
   stat_summary(fun = mean,
                colour = "red",
                geom = "point") +
@@ -73,6 +97,13 @@ covid_CAN_USA_plot
 
 welch_test <- t.test( response_ratio ~ location, data = covid_CAN_USA)
 tidy(welch_test)
+
+```
+
+
+```{r}
+wilcox_test <- wilcox.test(response_ratio ~ location, data=covid_CAN_USA)
+wilcox_test %>% tidy()
 
 ```
 
