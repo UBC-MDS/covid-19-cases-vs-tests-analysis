@@ -12,6 +12,7 @@ from docopt import docopt
 
 opt = docopt(__doc__)
 
+
 def main(url, path):
     data = pd.read_csv(url, header=None)
     try:
@@ -19,7 +20,6 @@ def main(url, path):
     except:
         os.makedirs(os.path.dirname(path))
         data.to_csv(path, index=False)
-
 
 
 if __name__ == "__main__":

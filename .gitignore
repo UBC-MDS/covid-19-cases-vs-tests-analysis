@@ -21,3 +21,6 @@
 
 # Byte-compiled/optimized files
 __pycache__/
+
+# PyCharm files
+.idea/
