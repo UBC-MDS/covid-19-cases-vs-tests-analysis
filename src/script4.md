@@ -1,7 +1,7 @@
 "Performs statistical analysis on preprocessed data and save figures and tables 
 into new file.
 
-Usage: download_data.R --data=<data> --output_dir=<output_dir> 
+Usage: stat_analysis.R --data=<data> --output_dir=<output_dir> 
  
 Options:
 --data=<data>          Path to the file containing the processed data (in standard csv format)
@@ -10,15 +10,34 @@ Options:
 
 library(docopt)
 library(readr)
+library(tidyverse)
 
 opt <- docopt(doc)
-
 data <- read_csv(data)
 
-summary_table 
+try({
+    dir.create(out_dir)
+  })
+
+
+
+
+# Function to create summary table of the groups
+
+
+summary_stats <- covid_CAN_USA %>%  
+  group_by(location) %>% 
+  summarise(n = n(),
+            mu = mean(response_ratio),
+            median = median(response_ratio),
+            sd = sd (response_ratio),
+            se = sd / (sqrt(n))
+  )
+
 
 covid_bartlett <- bartlett.test(response_ratio ~ location, data = covid_data) %>% 
       tidy() 
+      
 saveRDS(covid_bartlett, file = paste0(output_dir, '/bartlett_test.rds'))
 
 # Function to nest data and calculate the medians of each group 
@@ -51,6 +70,6 @@ null_dist <- visualize(null_dist) +
      geom_vline(xintercept = test_stat, color = 'red') + 
      xlab('Difference in Medians') + 
      ylab('Count')
-ggsave(filename = 'median_simulation.png')
+ggsave(filename = (paste0(output_dir,'/median_simulation.png'))
 
 
