@@ -1,7 +1,5 @@
 # Covid-19 Cases vs Tests Analysis
 
-# Covid-19 Cases vs Tests Analysis
-
 -   Authors: Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma
 
 ## Introduction
