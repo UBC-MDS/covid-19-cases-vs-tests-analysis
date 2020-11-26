@@ -43,12 +43,17 @@ can_data <- covid_CAN_USA %>%
 us_data <- covid_CAN_USA %>%
   filter(iso_code == 'USA') %>% 
   drop_na()
-qqPlot(can_data$inverse_ratio)
+qqPlot(can_data$response_ratio)
 
 ```
 
 ```{r}
-shapiro.test(can_data$inverse_ratio)
+shapiro.test(can_data$response_ratio)
+```
+```{r}
+covid_bartlett <- bartlett.test(response_ratio ~ location, data = covid_CAN_USA) %>% 
+    tidy()
+covid_bartlett
 ```
 
 
