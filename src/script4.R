@@ -1,3 +1,6 @@
+# authors: Fatime Selimi, Nicholas Wu, Tanmay Sharma, Neel Phaterpekar
+# date: 2019-12-28
+
 "Performs statistical analysis on preprocessed data and save figures and tables 
 into new file.
 
@@ -25,37 +28,56 @@ main <- function(data, sum_data, out_dir) {
   sum_data <- read_csv(sum_data)
   try({dir.create(out_dir)})
   
-  summary_stats(sum_data, out_dir)
-  bartlett_test(data, out_dir)
-  boot_dist <- boot_dist(data)
-  
+  summary_save(sum_data, out_dir)
+  bartlett_test_save(data, out_dir)
+  ratio_bootstraps <- ratio_bootstraps(data)
   test_stat <- diff(sum_data$median_response_ratio)
-  ci_threshold <- quantile(boot_dist$stat, c(0.025, 0.975))
-  null_dist(boot_dist, ci_threshold, test_stat, out_dir)
+  ci_threshold <- quantile(ratio_bootstraps$stat, c(0.025, 0.975))
+  null_dist_save(ratio_bootstraps, ci_threshold, test_stat, out_dir)
+  p_val_save(ratio_bootstraps, test_stat, out_dir)
 }
 
-# Function to create summary stats table 
 
-summary_stats <- function(sum_data, out_dir) {
+#' Saves an input summary table to a png file in the desired folder
+#'    
+#' @param sum_data a data frame of the summary statistics
+#' @param out_dir the folder to save the image to 
+#' 
+#' @examples
+#' summary_save(sum_data, '/summary_table.png')
+summary_save <- function(sum_data, out_dir) {
   kable(sum_data, caption = "Table 1. Summary Statistics of Response Ratio", 'html', digits = 2, padding = 20) %>%
   kable_material(c('striped', 'hover')) %>% 
   save_kable(paste0(out_dir, "/summary_table.png"))
 }
 
-
-# Function to perform and save the results of a Bartlette test for equal variance
-
-bartlett_test<- function(data, out_dir) {
+#' Performs a Bartlette Test to test for equal variances
+#' and saves the output in the desired folder
+#'    
+#' @param data data frame to perform Bartlett test on
+#' @param out_dir the folder to save the image to 
+#' 
+#' @examples
+#' bartlette_test_save(data, '/bartlett_test.png')
+bartlett_test_save<- function(data, out_dir) {
   bartlett.test(response_ratio ~ iso_code, data = data) %>% 
   tidy() %>% 
   kable(caption = "Table 1. Summary Statistics of Response Ratio", 'html', padding = 20, digits = 2) %>%
+  kable_material(c('striped', 'hover')) %>%
   kable_styling("striped") %>%
-  save_kable(paste0(out_dir, "/bartlette_test.png"))
+  save_kable(paste0(out_dir, "/bartlett_test.png"))
 }
 
-# Perform bootstrap generation of null distribution 
-
-boot_dist <- function (data) {
+#' Generates a bootstrap distribution and calculates difference in 
+#' median response ratio between CAN and USA for each bootstrap
+#'    
+#' @param data data frame to bootstrap from
+#' 
+#' @return data frame of the bootstraps with calculated estimator
+#' 
+#' @examples
+#' ratio_bootstraps(data)
+ratio_bootstraps <- function(data) {
   data %>% 
   specify(formula = response_ratio ~ iso_code) %>% 
   hypothesize(null = 'independence') %>% 
@@ -63,10 +85,19 @@ boot_dist <- function (data) {
   calculate(stat = 'diff in medians', order = c('CAN', 'USA'))
 }
   
-# Plot null distribution, overlay with sample estimate and ci thresholds
 
-null_dist <- function(boot_dist, ci_threshold, test_stat, out_dir) {
-    visualize(boot_dist) + 
+#' Plots null distribution and outlines boundaries of the 95% 
+#' confidence interval. This is saved as a png in the desired folder
+#'    
+#' @param ratio_bootstraps distribution of bootstrapped estimators
+#' @param ci_threshold data frame containing the boundaries of the 95% confidence interval 
+#' @param test_stat value of the sample estimate
+#' @param out_dir the folder to save the image to 
+#' 
+#' @examples
+#' bartlette_test_save(data, '/bartlett_test.png')
+null_dist_save <- function(ratio_bootstraps, ci_threshold, test_stat, out_dir) {
+    visualize(ratio_bootstraps) + 
     geom_vline(xintercept = c(ci_threshold[1], ci_threshold[2]),
                color = 'black',
                lty = 4) + 
@@ -76,6 +107,22 @@ null_dist <- function(boot_dist, ci_threshold, test_stat, out_dir) {
     ggtitle('Figure 1.')
     ggsave(filename = (paste0(out_dir,'/median_simulation.png')), width = 5, height = 3)
 }
-    
+
+#' Calculates p-value of the simulated hypothesis test
+#'    
+#' @param ratio_bootstraps distribution of bootstrapped estimators
+#' @param test_stat value of the sample estimate
+#' @param out_dir the folder to save the image to 
+#' 
+#' @examples
+#' p_val_save(ratio_bootstraps, test_stat, out_dir)     
+p_val_save <- function(ratio_bootstraps, test_stat, out_dir){
+  get_pvalue(ratio_bootstraps, obs_stat = test_stat, direction = 'both') %>% 
+  kable(caption = "Table 3. P-value of Simulated Hypothesis Test", 'html', padding = 20) %>%
+  kable_material(c('striped', 'hover')) %>%
+  kable_styling("striped") %>%
+  save_kable(paste0(out_dir, "/simulation_pval.png"))
+}
+  
 main(opt$data, opt$sum_data, opt$out_dir)
 

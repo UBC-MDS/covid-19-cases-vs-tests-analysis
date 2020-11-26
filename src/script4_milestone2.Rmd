@@ -64,6 +64,7 @@ covid_stats <- covid_CAN_USA %>%    # for personal reference
   group_by(location) %>% 
   summarise(n = n(),
             mu = mean(response_ratio),
+            median = median(response_ratio),
             sd = sd (response_ratio),
             se = sd / (sqrt(n))
   )
@@ -99,14 +100,13 @@ covid_CAN_USA_plot
 
 welch_test <- t.test( response_ratio ~ location, data = covid_CAN_USA)
 tidy(welch_test)
-
+saveRDS()
 ```
 
 
 ```{r wilcox test}
 wilcox_test <- wilcox.test(response_ratio ~ location, data=covid_CAN_USA)
 wilcox_test %>% tidy()
-
 ```
 
 ```{r simulation based approach - mean}
@@ -134,10 +134,10 @@ null_dist_plot <- visualize(null_dist) +
              lty = 4) + 
      geom_vline(xintercept = test_stat, color = 'red')
 
-
+ggsave(filename = 'null.png')
 p_val <- null_dist %>% 
      get_pvalue(obs_stat = test_stat, direction = 'both')
-
+    
 null_dist_plot
 null_dist
 threshold
@@ -146,7 +146,7 @@ ratio_means
 
 ```{r}
 test_stat <- diff(ratio_means$median)
-
+path <- 'img/'
 null_dist <- covid_CAN_USA %>% 
   specify(formula = response_ratio ~ location) %>% 
   hypothesize(null = 'independence') %>% 
@@ -159,7 +159,10 @@ null_dist_plot <- visualize(null_dist) +
              geom_vline(xintercept = c(threshold[1], threshold[2]),
              color = 'black',
              lty = 4) + 
-     geom_vline(xintercept = test_stat, color = 'red')
+     geom_vline(xintercept = test_stat, color = 'red') + 
+   xlab('Difference in Medians') + 
+   ylab('Count')
+ggsave((filename = 'img/null.png'))
 
 
 p_val <- null_dist %>% 
