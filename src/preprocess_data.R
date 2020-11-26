@@ -3,7 +3,7 @@
 
 "Filters, cleans and transforms the OWID Covid-19 data (from (https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv)).
 Writes the transformed and summarized data to separate csv files.
-Usage: src/process_data.R --input=<input> --out_dir=<out_dir>
+Usage: src/preprocess_data.R --input=<input> --out_dir=<out_dir>
 
 Options:
 --input=<input>       Path (including filename) to raw data (csv file)
