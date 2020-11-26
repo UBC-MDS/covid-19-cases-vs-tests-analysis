@@ -29,10 +29,9 @@ calculate_median <- data %>%
     nest() %>% 
     mutate(median = map_dbl(data, ~mean(.x$response_ratio)))
     
-
 # Perform bootstrap generation of null distribution 
 
-null_dist <- covid_CAN_USA %>% 
+boot_dist <- covid_CAN_USA %>% 
   specify(formula = response_ratio ~ location) %>% 
   hypothesize(null = 'independence') %>% 
   generate(reps = 1000, type = 'permute') %>% 
@@ -45,5 +44,13 @@ test_stat <- diff(calculate_median$median)
 
 # Plot null distribution, overlay with sample estimate and ci thresholds
 
+null_dist <- visualize(null_dist) + 
+             geom_vline(xintercept = c(threshold[1], threshold[2]),
+             color = 'black',
+             lty = 4) + 
+     geom_vline(xintercept = test_stat, color = 'red') + 
+     xlab('Difference in Medians') + 
+     ylab('Count')
+ggsave(filename = 'median_simulation.png')
 
 
