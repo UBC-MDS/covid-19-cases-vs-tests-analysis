@@ -4,10 +4,10 @@
 """
 Creates eda altair plots for the response ratio from the COVID-19 data (from https://github.com/owid/covid-19-data/tree/master/public/data).
 Saves the plots as png files.
-Usage: src/preprocess_data.py --input=<input> --out_dir=<out_dir>
+Usage: src/eda_covid19.py --input=<input> --out_dir=<out_dir>
 
 Options:
---input=<input>       Path (including filename) to raw data (csv file)
+--input=<input>       Path (including filename) to processed data (csv file)
 --out_dir=<out_dir>   Path to directory where png files should be saved
 """
 
@@ -25,7 +25,7 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 
 opt = docopt(__doc__)
 
-# create constants with relevant info we need from the raw csv data
+# create constants with relevant info we need from the processed csv data
 ISO_CODES = {'CANADA': 'CAN', 'USA': 'USA'}
 START_DATE = '2020-03-01'
 END_DATE = '2020-10-31'
