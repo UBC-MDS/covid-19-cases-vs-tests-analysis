@@ -90,7 +90,7 @@ def generate_ridgeline_plot(data, x_lab_country_name):
     data
         input data set from preprocessed csv.
     x_lab_country_name
-        name of the the country for which we want to generate the ridgeline plot
+        name of the country for which we want to generate the ridgeline plot
 
     Returns
     -------
