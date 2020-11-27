@@ -27,28 +27,12 @@ main <- function(data, sum_data, out_dir) {
   data <- read_csv(data)
   sum_data <- read_csv(sum_data)
   try({dir.create(out_dir)})
-  
-  summary_save(sum_data, out_dir)
   bartlett_test_save(data, out_dir)
   ratio_bootstraps <- ratio_bootstraps(data)
   test_stat <- diff(sum_data$median_response_ratio)
   ci_threshold <- quantile(ratio_bootstraps$stat, c(0.025, 0.975))
   null_dist_save(ratio_bootstraps, ci_threshold, test_stat, out_dir)
   p_val_save(ratio_bootstraps, test_stat, out_dir)
-}
-
-
-#' Saves an input summary table to a png file in the desired folder
-#'    
-#' @param sum_data a data frame of the summary statistics
-#' @param out_dir the folder to save the image to 
-#' 
-#' @examples
-#' summary_save(sum_data, '/summary_table.png')
-summary_save <- function(sum_data, out_dir) {
-  kable(sum_data, caption = "Table 1. Summary Statistics of Response Ratio", 'html', digits = 2, padding = 20) %>%
-  kable_material(c('striped', 'hover')) %>% 
-  save_kable(paste0(out_dir, "/summary_table.png"))
 }
 
 #' Performs a Bartlette Test to test for equal variances
@@ -62,7 +46,7 @@ summary_save <- function(sum_data, out_dir) {
 bartlett_test_save<- function(data, out_dir) {
   bartlett.test(response_ratio ~ iso_code, data = data) %>% 
   tidy() %>% 
-  kable(caption = "Table 1. Summary Statistics of Response Ratio", 'html', padding = 20, digits = 2) %>%
+  kable(caption = "Table 2. Summary Statistics of Response Ratio", 'html', padding = 20, digits = 2) %>%
   kable_material(c('striped', 'hover')) %>%
   kable_styling("striped") %>%
   save_kable(paste0(out_dir, "/bartlett_test.png"))
@@ -104,7 +88,7 @@ null_dist_save <- function(ratio_bootstraps, ci_threshold, test_stat, out_dir) {
     geom_vline(xintercept = test_stat, color = 'red') + 
     xlab('Difference in Medians') + 
     ylab('Count') + 
-    ggtitle('Figure 1.')
+    ggtitle('Figure 1. Difference in Median Response Rate Simulation')
     ggsave(filename = (paste0(out_dir,'/median_simulation.png')), width = 5, height = 3)
 }
 
@@ -117,8 +101,14 @@ null_dist_save <- function(ratio_bootstraps, ci_threshold, test_stat, out_dir) {
 #' @examples
 #' p_val_save(ratio_bootstraps, test_stat, out_dir)     
 p_val_save <- function(ratio_bootstraps, test_stat, out_dir){
-  get_pvalue(ratio_bootstraps, obs_stat = test_stat, direction = 'both') %>% 
-  kable(caption = "Table 3. P-value of Simulated Hypothesis Test", 'html', padding = 20) %>%
+  pval_table <- get_pvalue(ratio_bootstraps, obs_stat = test_stat, direction = 'both') 
+  
+  if (pval_table$p_value == 0)  {
+  pval_table <- mutate(pval_table, p_val = '< 0.0001') %>% 
+      select(p_val)
+  }
+
+  kable(pval_table, caption = "Table 3. P-value of Simulated Hypothesis Test", 'html', table.attr = "style='width:10%;'") %>%
   kable_material(c('striped', 'hover')) %>%
   kable_styling("striped") %>%
   save_kable(paste0(out_dir, "/simulation_pval.png"))
