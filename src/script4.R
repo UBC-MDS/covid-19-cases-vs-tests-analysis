@@ -88,7 +88,8 @@ null_dist_save <- function(ratio_bootstraps, ci_threshold, test_stat, out_dir) {
     geom_vline(xintercept = test_stat, color = 'red') + 
     xlab('Difference in Medians') + 
     ylab('Count') + 
-    ggtitle('Figure 1. Difference in Median Response Rate Simulation')
+    ggtitle('Figure 1. Difference in Median Response Rate Simulation') + 
+    theme(plot.title = element_text(size = 9))
     ggsave(filename = (paste0(out_dir,'/median_simulation.png')), width = 5, height = 3)
 }
 
