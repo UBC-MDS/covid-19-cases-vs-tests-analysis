@@ -24,3 +24,6 @@ __pycache__/
 
 # PyCharm files
 .idea/
+
+# Ignore all .csv files
+*.csv
