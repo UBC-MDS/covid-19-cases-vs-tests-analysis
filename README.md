@@ -62,6 +62,7 @@ be the tidy version of of 95% two-tailed hypothesis test. This table
 will contain a p-value which will indicate if any differences seen in
 the groups is statistically significant.
 
+
 ## Usage
 
 To replicate the analysis, clone this GitHub repository, install the
@@ -69,9 +70,24 @@ To replicate the analysis, clone this GitHub repository, install the
 commands at the command line/terminal from the root directory of this
 project:
 
-    python src/download_data.py --url=https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv --path=data/processed/covid19.csv
-    Rscript src/download_data.R --url=https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv --path=data/processed/covid19.csv
+    # download data
+    python src/download_data.py --url=https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv --path=data/raw/owid-covid-data.csv
+    Rscript src/download_data.R --url=https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv --path=data/raw/owid-covid-data.csv
 
+    # run pre-process data
+    python src/preprocess_data.py --input=data/raw/owid-covid-data.csv --out_dir=data/processed
+    Rscript src/preprocess_data.R --input=data/raw/owid-covid-data.csv --out_dir=data/processed
+    
+    # run eda report
+    python src/eda_covid19.py --input=data/processed --out_dir=results
+    Rscript src/eda_covid19.r --input_path=<input_path> --out_dir=results
+    
+    # create exploratory data analysis figure and write to file 
+    Rscript src/script4.R --data=data/processed/covid_can_usa.csv --sum_data=data/processed/covid_can_usa_summary.csv --out_dir=results
+    
+    # render final report
+    TODO
+    
 ## Dependencies
 
 -   Python 3.8.5 and Python packages:
