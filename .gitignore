@@ -27,3 +27,6 @@ __pycache__/
 
 # Ignore all .csv files
 *.csv
+
+# Ignore log files
+*.log
