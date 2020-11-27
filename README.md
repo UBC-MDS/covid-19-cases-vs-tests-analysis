@@ -2,7 +2,7 @@
 
 -   Authors: Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma
 
-## Introduction
+## About
 
 The data set used in this project comes from the Our World in Data
 COVID-19 Database created by Hannah Richie et al. (Max Roser and Hasell
@@ -19,48 +19,15 @@ Data](https://ourworldindata.org/coronavirus) and raw data can be found
 
 With this data, we ask whether there is a difference in the ratio of the 
 new daily tests performed to the new daily cases between Canada and the 
-United States. Both of these North American countries have been hit hard by the
-pandemic, but have taken different approaches in response. This question
-is of interest as it will provide insight into whether the number of
-daily tests being performed is meeting the demand of new daily cases in
-a given country. Moreover, the comparison between Canada and the United
-States may suggest which country is responding better to the demands on
-the pandemic. This analysis may implicate a certain country as having a
-more robust response strategy to the pandemic, which could then be
-implemented in the future.
-
-We will be performing a two-tailed hypothesis test using a variant of the 2 sample
-t-test to compare the difference in the mean ratio of the daily new
-tests performed to the daily cases. We have coined this term as the
-‘response ratio.’ Prior to hypothesis testing, we will perform extensive
-exploratory data analysis to determine what the best measure of central
-tendency is within our two groups (Canada and USA). We will create a new
-response ratio column in the data set by dividing the daily new tests by
-the number of cases on that date. We will explore the distribution of
-the data to check our samples are normally distributed and to ensure
-that we have sufficient observations to obtain a strong sample size. Our
-null hypothesis will be that there is no difference in the mean response
-ratio between Canada and USA (ie the ratios are equal). Our alternative
-hypothesis will be that the ratios are not equal. Furthermore, we will
-construct a 95% confidence interval to indicate the range that we are
-95% confident that the true population parameter falls under.
-
-We will create a summary table that explores the mean response ratio
-between the two groups that will be used as our estimate. We can also
-understand the spread of the data and well as if the data is skewed by
-considering the standard deviation and median. A simple bar chart
-comparing the group means would be an initial indicator of whether the
-samples means are different. This analysis will give us information on
-whether we satisfy all of the conditions that are necessary to perform a
-hypothesis test.
-
-We can create a violin plot that displays the distribution as well as
-the 95% confidence interval that the estimate falls under. We can see if
-the confidence intervals are overlapping to get an idea of whether the
-point estimates are truly different. Another good table to display will
-be the tidy version of of 95% two-tailed hypothesis test. This table
-will contain a p-value which will indicate if any differences seen in
-the groups is statistically significant.
+United States. Since the distributions were found to be left skewed and 
+of unequal varaince, we perform a two-tailed hypothesis test checking for 
+the independence of medians using permutation. With a significance level of 
+0.05, we found that there was enough evidence to conclude that the median 
+reponse ratio was significantly different between Canada and the United States 
+(p-value < 0.0001). This is one way to begin to assess the different responses
+and outcomes that these two countries have faced during the pandemic. However, 
+further analysis is required to better understand the differences present in
+the Canada-US responses to COVID-19. 
 
 
 ## Usage
