@@ -11,7 +11,7 @@ Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma
       - [Data](#data)
       - [Assumptions and limitations](#assumptions-and-limitations)
       - [Methodology](#methodology)
-  - [Results and Discussion](#results-discussion)
+  - [Results and Discussion](#results-and-discussion)
   - [Future Work](#future-work)
   - [References](#references)
 
