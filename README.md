@@ -81,7 +81,7 @@ project:
 ## Report
 
     # render final report
-    Rscript covid-response.Rmd
+    Rscript -e "rmarkdown::render('doc/covid-response.Rmd')"
 
 # Dependencies
 
