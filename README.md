@@ -31,6 +31,10 @@ have faced during the pandemic. However, further analysis is required to
 better understand the differences present in the Canada-US responses to
 COVID-19.
 
+Details of the EDA process are captured in our reports under the eda
+folder which can be found
+[here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/eda).
+
 # Usage
 
 To replicate the analysis, clone this GitHub repository, install the
@@ -57,10 +61,6 @@ project:
     Rscript src/preprocess_data.R --input=data/raw/owid-covid-data.csv --out_dir=data/processed
 
 ## EDA
-
-Details of the EDA process are captured in our reports under the eda
-folder which can be found
-[here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/eda).
 
 ### Python
 
