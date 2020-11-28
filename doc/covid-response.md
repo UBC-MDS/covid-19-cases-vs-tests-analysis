@@ -11,7 +11,7 @@ Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma
       - [Data](#data)
       - [Assumptions and limitations](#assumptions-and-limitations)
       - [Methodology](#methodology)
-  - [Results & Discussion](#results-discussion)
+  - [Results and Discussion](#results-discussion)
   - [Future Work](#future-work)
   - [References](#references)
 
@@ -174,7 +174,7 @@ tidyverse (Wickham 2017). All the code used in the analysis can be found
 at
 <https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src>.
 
-# Results & Discussion
+# Results and Discussion
 
 The p-value for our test was \<0.0001. Based on this p-value, since it
 is much lower than our significance threshold of 0.05 we reject our Null
