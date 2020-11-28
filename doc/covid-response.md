@@ -7,6 +7,7 @@ Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma
   - [Introduction](#introduction)
   - [Project Scope](#project-scope)
   - [Analysis](#analysis)
+      - [The Question](#the-question)
       - [Data](#data)
       - [Assumptions and limitations](#assumptions-and-limitations)
       - [Methodology](#methodology)
@@ -70,7 +71,7 @@ Dr.Peng’s quintessential work, `The Art of Data Science`(Roger D. Peng
 
 # Analysis
 
-\#\#The Question
+## The Question
 
 We’ve defined response ratio to be the ratio of the daily new COVID-19
 viral detection tests conducted to the daily new COVID-19 confirmed

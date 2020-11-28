@@ -4,7 +4,7 @@ author: "Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma"
 date: "2020/11/27"
 bibliography: covid19.bib
 output: 
-  github_document:
+  html_document:
     toc: true
 ---
 
