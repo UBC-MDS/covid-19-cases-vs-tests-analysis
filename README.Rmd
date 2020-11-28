@@ -63,12 +63,17 @@ project:
 
 Details of the EDA process are captured in our reports under the eda folder which can be found [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/eda).
 
+
+
 ### Python  
 
     Rscript src/eda_covid19.r --input_path=data/processed --out_dir=results
     
 ### R
 
+    # run eda report
+    Rscript -e "rmarkdown::render('eda/EDA_analysis.Rmd')"
+  
     python src/eda_covid19.py --input=data/processed --out_dir=results
     
 ## Analysis

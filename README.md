@@ -68,6 +68,9 @@ folder which can be found
 
 ### R
 
+    # run eda report
+    Rscript -e "rmarkdown::render('eda/EDA_analysis.Rmd')"
+    
     python src/eda_covid19.py --input=data/processed --out_dir=results
 
 ## Analysis
