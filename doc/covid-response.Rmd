@@ -2,10 +2,12 @@
 title: "Covid19 Response Ratio Comparison between Canada and USA"
 author: "Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma"
 date: "2020/11/27"
-bibliography: covid19.bib
-output: 
+output:
+  pdf_document:
+    toc: yes
   html_document:
-    toc: true
+    toc: yes
+bibliography: covid19.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -16,11 +18,11 @@ library(tidyverse)
 
 # Aim
 
-This project explores if there is a quantifiable difference in the Covid-19 responses of Canada and USA as measured through analyzing the number of daily new cases and daily new tests being conducted in both the countries between March and October 2020.
+This project explores if there is a quantifiable difference in the Covid-19 responses of Canada and the USA as measured through analyzing the number of daily new cases and daily new tests being conducted in both the countries between March and October 2020.
 
 # Introduction
 
-Coronavirus disease 2019 (COVID-19) is a contagious disease caused by the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) [@who]. North-America has been severely impacted by COVID-19; a quarter of all global deaths as of November 27th, 2020 have occurred on the continent. Observing the pandemic's impact at a country level shows a stark contrast in the number of cases and deaths between Canada as USA. As of November 27th, 2020, there have been 241,906 deaths in the US and 11,799 deaths in Canada as per the countries' official sources [@cdc] [@govCA]. Even if we account for some factors such as population densities, number of international airports, migration of people, climatic factors, etc. to understand the varied impact of COVID-19 on Canada and USA it still seems worthwhile to explore how the response measures of both the countries have shaped the pandemic's trajectory since it first broke out on the continent in January 2020 [@first-case]. Moreover, the widespread coverage and analysis of the COVID-19 in global media as well as different studies in the academic community have led to a popular perception that Canada has been able to better respond to the pandemic than USA. For instance, a study by Jeffrey Lazarus et al.[@covid-score] devised a `covid-score` metric to quantify the government response measures for different countries and ranked Canada (score = 61.00) much better than the USA (covid-score = 50.57). This project attempts a preliminary analysis of the COVID-19 data regarding daily cases and tests being conducted in Canada and USA to understand the response of the these two neighbors to one of the deadliest pandemics that the world has seen in decades.
+Coronavirus disease 2019 (COVID-19) is a contagious disease caused by the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) [@who]. North-America has been severely impacted by COVID-19; a quarter of all global deaths as of November 27th, 2020 have occurred on the continent. Observing the pandemic's impact at a country level shows a stark contrast in the number of cases and deaths between Canada as the USA. As of November 27th, 2020, there have been 241,906 deaths in the US and 11,799 deaths in Canada as per the countries' official sources [@cdc] [@govCA]. Even if we account for some factors such as population densities, number of international airports, migration of people, climatic factors, etc. to understand the varied impact of COVID-19 on Canada and the USA it still seems worthwhile to explore how the response measures of both the countries have shaped the pandemic's trajectory since it first broke out on the continent in January 2020 [@first-case]. Moreover, the widespread coverage and analysis of the COVID-19 in global media as well as different studies in the academic community have led to a popular perception that Canada has been able to better respond to the pandemic than the USA. For instance, a study by Jeffrey Lazarus [@covid-score] devised a `covid-score` metric to quantify the government response measures for different countries and ranked Canada (score = 61.00) much better than the USA (covid-score = 50.57). This project attempts a preliminary analysis of the COVID-19 data regarding daily cases and tests being conducted in Canada and the USA to understand the response of the these two neighbors to one of the deadliest pandemics that the world has seen in decades.
 
 # Project Scope
 
@@ -32,11 +34,11 @@ Epidemiology is a complex science and there are a myriad factors that can shape 
 
 We've defined response ratio to be the ratio of the daily new COVID-19 viral detection tests conducted to the daily new COVID-19 confirmed cases.
 
-$$ \texttt{Response Ratio} = \frac{\text{Daily New COVID-19 Viral Detection Tests Conducted Nationally}}{\text{Daily New COVID-19 Confirmed Cases Nationally}} $$
+$$ \text{Response Ratio} = \frac{\text{Daily New COVID-19 Viral Detection Tests Conducted Nationally}}{\text{Daily New COVID-19 Confirmed Cases Nationally}} $$
 
-The statistical question being probed in this project is, `Is there a difference in the median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020?`
+The statistical question being probed in this project is, `Is there a difference in the median daily response ratio of Canada and the USA between March 1st 2020 and October 31st 2020?`
 
-The team feels that the question presents an opportunity to meaningfully explore COVID-19 data through a simple statistical analysis and stays true to the project scope as discussed in the section above. The question provides a stepping stone towards helping develop a prefatory understanding of COVID-19 responses in Canada and USA and can be built upon further through more robust analyses. The team acknowledges that there are several assumptions and limitations associated with this analysis and they are discussed in the relevant sections below. 
+The team feels that the question presents an opportunity to meaningfully explore COVID-19 data through a simple statistical analysis and stays true to the project scope as discussed in the section above. The question provides a stepping stone towards helping develop a prefatory understanding of COVID-19 responses in Canada and the USA and can be built upon further through more robust analyses. The team acknowledges that there are several assumptions and limitations associated with this analysis and they are discussed in the relevant sections below. 
 
 ## Data
 
@@ -47,29 +49,28 @@ The data set used in this project comes from the `Our World in Data COVID-19` da
 1. We've restricted the time-line for consideration to be between March 1st 2020 and October 31st 2020.
 2. The choice of timeline is further explained in our Exploratory Data Analysis reports under the eda folder.
 3. We acknowledge that it is impossible to gather data regarding the true population of confirmed COVID-19 cases and the viral detection tests being conducted.
-4. Our sample sizes for both Canada and USA while calculating daily response ratios are limited by the data as present in our data set. 
+4. Our sample sizes for both Canada and the USA while calculating daily response ratios are limited by the data as present in our data set. 
 5. We acknowledge that the nature of our data set is temporal and that there will be autocorrelation within each country's response rate calculations.
-6. Our analysis seeks to establish a simple comparison with no attempts to infer causality and/or other overarching conclusions about either 
+6. Our analysis seeks to establish a simple comparison with no attempts to infer causality and/or other overarching conclusions about either. 
 
 ## Methodology
 
 The team performed extensive EDA to wrangle the data and make it suitable for further analysis. Details of the EDA process are captured in our reports under the eda folder which can be found [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/eda).
 
-Firstly, we calculated the daily response ratio for both Canada and USA for the time-line of interest using the daily new_tests and new_cases columns found in the data set. We analyzed the distribution of the daily response ratio for both the countries during the time-line of interest as shown in the figure below.
+Firstly, we calculated the daily response ratio for both Canada and the USA for the time-line of interest using the daily new_tests and new_cases columns found in the data set. We analyzed the distribution of the daily response ratio for both the countries during the time-line of interest as shown in the figure below.
 
 ![](../results/histogram_plot.png)
-Figure 1. Sample Distribution of Daily Response Ratio for USA and Canada between March 1st 2020 and October 31st 2020.
+Figure 1. Sample Distribution of Daily Response Ratio for the USA and Canada between March 1st 2020 and October 31st 2020.
 
-We analyzed and confirmed that there is a difference in the variances of distributions of the daily response ratio data for both Canada and USA during the time-line of interest through a Bartlett's test. 
+We analyzed and confirmed that there is a difference in the variances of distributions of the daily response ratio data for both Canada and the USA during the time-line of interest through a Bartlett's test. 
 
 The team decided to use permutation based hypothesis testing to answer our statistical question. We chose a 95% confidence level for our sample estimate i.e a significance threshold level of ${\alpha = 0.05}$.
 
 Our Null($H_0$) and Alternate($H_a$) Hypotheses are:
 
-$$ \text {$H_0$: The median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is equal} $$
-
-$$ \text {$H_a$: The median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is not equal} $$
-We generated a bootstrap distribution of bootstrap sample median response ratios for Canada and USA during the time-line of interest. We visualized our booststrap distributions as shown in the figure below.
+$$ \text {$H_0$: The median daily response ratio of Canada and the USA between March 1st 2020 and October 31st 2020 is equal} $$
+$$ \text {$H_a$: The median daily response ratio of Canada and the USA between March 1st 2020 and October 31st 2020 is not equal} $$
+We generated a bootstrap distribution of bootstrap sample median response ratios for Canada and the USA during the time-line of interest. We visualized our booststrap distributions as shown in the figure below.
 
 ![](../results/median_simulation.png)
 Figure 2. Simulation based Bootstrap Distribution for the Null Hypothesis.
@@ -81,20 +82,18 @@ The R [@R] and Python [@Python] programming languages were used to perform the a
 
 # Results and Discussion
 
-The p-value for our test was <0.0001. Based on this p-value, since it is much lower than our significance threshold of 0.05 we reject our Null Hypothesis that the median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is equal. 
+The p-value for our test was <0.0001 (Table 1). Based on this p-value, since it is much lower than our significance threshold of 0.05 we reject our Null Hypothesis that the median daily response ratio of Canada and the USA between March 1st 2020 and October 31st 2020 is equal. 
 
-Our results are summarized in the table below.
+![](../results/simulation_pval.png)
+Table 1. p-value from the Permutation based Hypothesis Testing.
 
-![](../results/summary_table.png)
-Table 1. Results Summary.
-
-Based on our analysis we can-not categorically say that Canada's overall response strategy towards COVID-19 was more efficient that that of USA; however, we can infer with reasonable confidence that the median daily response ratio as defined within the confines of our earlier stated assumptions was higher for Canada than USA between March 1st 2020 and October 31st 2020.
+Based on our analysis we can-not categorically say that Canada's overall response strategy towards COVID-19 was more efficient that that of the USA; however, we can infer with reasonable confidence that the median daily response ratio as defined within the confines of our earlier stated assumptions was higher for Canada than the USA between March 1st 2020 and October 31st 2020.
 
 We also acknowledge that there are some pitfalls such as selection-bias, random-variability, and sampling-variability [@aods] which our analysis doesn't address owing to the scope of the project as explained earlier.
 
 # Future Work
 
-Our analysis can be built upon further to devise a more sophisticated framework to understand COVID-19 responses in Canada and USA. Some of the interesting points which would help expand the scope of this project include:
+Our analysis can be built upon further to devise a more sophisticated framework to understand COVID-19 responses in Canada and the USA. Some of the interesting points which would help expand the scope of this project include:
 
 1. Include more robust data, for e.g. finding data for some of the missing days in the current data set.
 2. Expand the time-line of consideration for the analysis.
