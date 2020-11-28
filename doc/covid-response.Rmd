@@ -85,6 +85,8 @@ The R [@R] and Python [@Python] programming languages were used to perform the a
 The p-value for our test was <0.0001 (Table 1). Based on this p-value, since it is much lower than our significance threshold of 0.05 we reject our Null Hypothesis that the median daily response ratio of Canada and the USA between March 1st 2020 and October 31st 2020 is equal. 
 
 ![](../results/simulation_pval.png)
+
+
 Table 1. p-value from the Permutation based Hypothesis Testing.
 
 Based on our analysis we can-not categorically say that Canada's overall response strategy towards COVID-19 was more efficient that that of the USA; however, we can infer with reasonable confidence that the median daily response ratio as defined within the confines of our earlier stated assumptions was higher for Canada than the USA between March 1st 2020 and October 31st 2020.
