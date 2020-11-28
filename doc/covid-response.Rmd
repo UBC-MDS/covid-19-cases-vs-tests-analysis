@@ -76,7 +76,7 @@ Figure 2. Simulation based Bootstrap Distribution for the Null Hypothesis.
 
 Thereafter, we calculated the p-value for our hypothesis test. The results are discussed in the section below.
 
-The R [@R] and Python [@Python] programming languages were used to perform the analysis in this project. Several R and Python packages were used, a complete list of package dependencies can be found in the [Readme.md](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/blob/main/README.md). All the code used in the analysis can be found [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src>). 
+The R [@R] and Python [@Python] programming languages were used to perform the analysis in this project. Several R and Python packages were used, a complete list of package dependencies can be found in the [Readme.md](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/blob/main/README.md). All the code used in the analysis can be found [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src). 
 
 
 # Results and Discussion
@@ -94,7 +94,7 @@ We also acknowledge that there are some pitfalls such as selection-bias, random-
 
 # Future Work
 
-Our analysis can be be built upon further to devise a more sophisticated framework to understand COVID-19 responses in Canada and USA. Some of the interesting points which would help expand the scope of this project include:
+Our analysis can be built upon further to devise a more sophisticated framework to understand COVID-19 responses in Canada and USA. Some of the interesting points which would help expand the scope of this project include:
 
 1. Include more robust data, for e.g. finding data for some of the missing days in the current data set.
 2. Expand the time-line of consideration for the analysis.
