@@ -62,9 +62,9 @@ Figure 1. Sample Distribution of Daily Response Ratio for USA and Canada between
 
 We analyzed and confirmed that there is a difference in the variances of distributions of the daily response ratio data for both Canada and USA during the time-line of interest through a Bartlett's test. 
 
-The team decided to use permutation based hypothesis testing to answer our statistical question. We chose a 95% confidence level for our sample estimate i.e a significance threshold level of $ \alpha = 0.05 $ .
+The team decided to use permutation based hypothesis testing to answer our statistical question. We chose a 95% confidence level for our sample estimate i.e a significance threshold level of ${\alpha = 0.05}$.
 
-Our Null($H_0$) and Alternate($H_a$) Hypothesis are:
+Our Null($H_0$) and Alternate($H_a$) Hypotheses are:
 
 $$ \text {$H_0$: The median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is equal} $$
 
@@ -76,7 +76,7 @@ Figure 2. Simulation based Bootstrap Distribution for the Null Hypothesis.
 
 Thereafter, we calculated the p-value for our hypothesis test. The results are discussed in the section below.
 
-The R [@R] and Python [@Python] programming languages were used to perform the analysis in this project. The following R and Python packages were used: knitr [@knitr] and tidyverse [@tidyverse]. All the code used in the analysis can be found at <https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src>. 
+The R [@R] and Python [@Python] programming languages were used to perform the analysis in this project. Several R and Python packages were used, a complete list of package dependencies can be found in the [Readme.md](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/blob/main/README.md). All the code used in the analysis can be found [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src>). 
 
 
 # Results and Discussion

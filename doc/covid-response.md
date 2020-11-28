@@ -150,9 +150,9 @@ during the time-line of interest through a Bartlett’s test.
 
 The team decided to use permutation based hypothesis testing to answer
 our statistical question. We chose a 95% confidence level for our sample
-estimate i.e a significance threshold level of $ = 0.05 $ .
+estimate i.e a significance threshold level of *α* = 0.05.
 
-Our Null(*H*<sub>0</sub>) and Alternate(*H*<sub>*a*</sub>) Hypothesis
+Our Null(*H*<sub>0</sub>) and Alternate(*H*<sub>*a*</sub>) Hypotheses
 are:
 
 *H*<sub>0</sub>: The median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is equal
@@ -170,10 +170,11 @@ results are discussed in the section below.
 
 The R (R Core Team 2019) and Python (Van Rossum and Drake 2009)
 programming languages were used to perform the analysis in this project.
-The following R and Python packages were used: knitr (Xie 2014) and
-tidyverse (Wickham 2017). All the code used in the analysis can be found
-at
-<a href="https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src" class="uri">https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src</a>.
+Several R and Python packages were used, a complete list of package
+dependencies can be found in the
+[Readme.md](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/blob/main/README.md).
+All the code used in the analysis can be found
+[here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src%3E).
 
 Results and Discussion
 ======================
@@ -258,11 +259,3 @@ Roger D. Peng, Elizabeth Matsui. 2016. *The Art of Data Science*.
 
 Van Rossum, Guido, and Fred L. Drake. 2009. *Python 3 Reference Manual*.
 Scotts Valley, CA: CreateSpace.
-
-Wickham, Hadley. 2017. *Tidyverse: Easily Install and Load the
-’Tidyverse’*. <https://CRAN.R-project.org/package=tidyverse>.
-
-Xie, Yihui. 2014. “Knitr: A Comprehensive Tool for Reproducible Research
-in R.” In *Implementing Reproducible Computational Research*, edited by
-Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman;
-Hall/CRC. <http://www.crcpress.com/product/isbn/9781466561595>.
