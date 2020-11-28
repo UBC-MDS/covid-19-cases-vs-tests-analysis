@@ -1,7 +1,7 @@
 ---
 title: "Covid19 Response Ratio Comparison between Canada and USA"
 author: "Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma"
-date: "11/27/2020"
+date: "2020/11/27"
 bibliography: covid19.bib
 output: 
   github_document:
