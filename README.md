@@ -1,7 +1,6 @@
 Covid-19 Cases vs Tests Analysis
 ================
 Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma
-2020/11/27
 
 # About
 
@@ -21,19 +20,17 @@ Data](https://ourworldindata.org/coronavirus) and raw data can be found
 With this data, we ask whether there is a difference in the ratio of the
 new daily tests performed to the new daily cases between Canada and the
 United States. Since the distributions were found to be left skewed and
-of unequal variance, we performed a two-tailed hypothesis test checking
-for the independence of medians using permutation. With a significance
-level of 0.05, we found that there was enough evidence to conclude that
-the median response ratio was significantly different between Canada and
-the United States (p-value \< 0.0001). This is one way to begin to
-assess the different responses and outcomes that these two countries
-have faced during the pandemic. However, further analysis is required to
-better understand the differences present in the Canada-US responses to
+of unequal variance (see EDA
+[here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/eda)),
+we performed a two-tailed hypothesis test checking for the independence
+of medians using permutation. With a significance level of 0.05, we
+found that there was enough evidence to conclude that the median
+response ratio was significantly different between Canada and the United
+States (p-value \< 0.0001). This is one way to begin to assess the
+different responses and outcomes that these two countries have faced
+during the pandemic. However, further analysis is required to better
+understand the differences present in the Canada-US responses to
 COVID-19.
-
-Details of the EDA process are captured in our reports under the eda
-folder which can be found
-[here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/eda).
 
 # Usage
 
@@ -64,6 +61,9 @@ project:
 
 ### Python
 
+    # run eda report
+    jupyter notebook eda/EDA-report-covid-19.ipynb
+    
     Rscript src/eda_covid19.r --input_path=data/processed --out_dir=results
 
 ### R
