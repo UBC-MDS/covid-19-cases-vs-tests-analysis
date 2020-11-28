@@ -79,7 +79,7 @@ ratio_bootstraps <- function(data) {
 #' @param out_dir the folder to save the image to 
 #' 
 #' @examples
-#' bartlette_test_save(data, '/bartlett_test.png')
+#' bartlett_test_save(data, '/bartlett_test.png')
 null_dist_save <- function(ratio_bootstraps, ci_threshold, test_stat, out_dir) {
     visualize(ratio_bootstraps) + 
     geom_vline(xintercept = c(ci_threshold[1], ci_threshold[2]),
