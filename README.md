@@ -20,10 +20,10 @@ Data](https://ourworldindata.org/coronavirus) and raw data can be found
 With this data, we ask whether there is a difference in the ratio of the 
 new daily tests performed to the new daily cases between Canada and the 
 United States. Since the distributions were found to be left skewed and 
-of unequal varaince, we perform a two-tailed hypothesis test checking for 
+of unequal variance, we performed a two-tailed hypothesis test checking for 
 the independence of medians using permutation. With a significance level of 
 0.05, we found that there was enough evidence to conclude that the median 
-reponse ratio was significantly different between Canada and the United States 
+response ratio was significantly different between Canada and the United States 
 (p-value < 0.0001). This is one way to begin to assess the different responses
 and outcomes that these two countries have faced during the pandemic. However, 
 further analysis is required to better understand the differences present in
@@ -62,15 +62,24 @@ project:
     -   pandas==1.1.4
     -   numpy
     -   altair
+    -   altair_saver
+    -   selenium 
+    -   webdriver_manager.chrome
+    
 -   R version 3.6.1 and R packages:
     -   knitr==1.29
     -   readr==1.3.1
     -   tidyverse==1.3.0
+    -   docopt
     -   broom==0.7.1
     -   infer==0.5.3
     -   cowplot==1.1.0
     -   ggplot2
-
+    -   kableExtra
+    -   webshot
+    -   magick
+    -   ggthemes
+    
 ## License
 
 The materials on analysis about Covid-19 mean response ratio for Canada
