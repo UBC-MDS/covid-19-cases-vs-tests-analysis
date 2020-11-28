@@ -77,7 +77,7 @@ Thereafter, we calculated the p-value for our hypothesis test. The results are d
 The R [@R] and Python [@Python] programming languages were used to perform the analysis in this project. The following R and Python packages were used: knitr [@knitr] and tidyverse [@tidyverse]. All the code used in the analysis can be found at <https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src>. 
 
 
-## Results & Discussion
+# Results & Discussion
 
 The p-value for our test was [INSERT p-value]. Based on this p-value, since it is much lower than our significance threshold of 0.05 we reject our Null Hypothesis that the median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is equal. 
 
@@ -89,7 +89,7 @@ Based on our analysis we can-not categorically say that Canada's overall respons
 
 We also acknowledge that there are some pitfalls such as selection-bias, random-variability, and sampling-variability [@aods] which our analysis doesn't address owing to the scope of the project as explained earlier.
 
-## Future Work
+# Future Work
 
 Our analysis can be be built upon further to devise a more sophisticated framework to understand COVID-19 responses in Canada and USA. Some of the interesting points which would help expand the scope of this project include:
 - Include more robust data, for e.g. finding data for some of the missing days in the current data set.
