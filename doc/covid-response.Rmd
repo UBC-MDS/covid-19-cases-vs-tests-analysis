@@ -66,13 +66,13 @@ The team decided to use permutation based hypothesis testing to answer our stati
 
 Our Null($H_0$) and Alternate($H_a$) Hypothesis are:
 
-$ H_0: The median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is equal $
-$ H_a: The median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is not equal $
+$$ \text {$H_0$: The median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is equal} $$
 
+$$ \text {$H_a$: The median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is not equal} $$
 We generated a bootstrap distribution of bootstrap sample median response ratios for Canada and USA during the time-line of interest. We visualized our booststrap distributions as shown in the figure below.
 
 ![](../results/median_simulation.png)
-Figure 2. Bootstrap Distribution of the Difference in Median Daily Response Ratios for USA and Canada between March 1st 2020 and October 31st 2020.
+Figure 2. Simulation based Bootstrap Distribution for the Null Hypothesis.
 
 Thereafter, we calculated the p-value for our hypothesis test. The results are discussed in the section below.
 
@@ -85,7 +85,7 @@ The p-value for our test was <0.0001. Based on this p-value, since it is much lo
 
 Our results are summarized in the table below.
 
-
+![](../results/summary_table.png)
 Table 1. Results Summary.
 
 Based on our analysis we can-not categorically say that Canada's overall response strategy towards COVID-19 was more efficient that that of USA; however, we can infer with reasonable confidence that the median daily response ratio as defined within the confines of our earlier stated assumptions was higher for Canada than USA between March 1st 2020 and October 31st 2020.
@@ -95,11 +95,12 @@ We also acknowledge that there are some pitfalls such as selection-bias, random-
 # Future Work
 
 Our analysis can be be built upon further to devise a more sophisticated framework to understand COVID-19 responses in Canada and USA. Some of the interesting points which would help expand the scope of this project include:
-- Include more robust data, for e.g. finding data for some of the missing days in the current data set.
-- Expand the time-line of consideration for the analysis.
-- Address the auto-correlation caused by the temporal nature of the daily data points by using appropriate time-series analysis techniques. 
-- Explore more features to include in quantifying the `Response Ratio`.
-- Build a model to take into account the other relevant features as discovered in the point above.
+
+1. Include more robust data, for e.g. finding data for some of the missing days in the current data set.
+2. Expand the time-line of consideration for the analysis.
+3. Address the auto-correlation caused by the temporal nature of the daily data points by using appropriate time-series analysis techniques.
+4. Explore more features to include in quantifying the `Response Ratio`.
+5. Build a model to take into account the other relevant features as discovered in the point above.
 
 
 # References

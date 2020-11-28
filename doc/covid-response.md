@@ -1,28 +1,25 @@
-Covid19 Response Ratio Comparison between Canada and USA
-================
-Fatime Selimi, Neel Phaterpekar, Nicholas Wu, Tanmay Sharma
-2020/11/27
+-   [Aim](#aim)
+-   [Introduction](#introduction)
+-   [Project Scope](#project-scope)
+-   [Analysis](#analysis)
+    -   [The Question](#the-question)
+    -   [Data](#data)
+    -   [Assumptions and limitations](#assumptions-and-limitations)
+    -   [Methodology](#methodology)
+-   [Results and Discussion](#results-and-discussion)
+-   [Future Work](#future-work)
+-   [References](#references)
 
-  - [Aim](#aim)
-  - [Introduction](#introduction)
-  - [Project Scope](#project-scope)
-  - [Analysis](#analysis)
-      - [The Question](#the-question)
-      - [Data](#data)
-      - [Assumptions and limitations](#assumptions-and-limitations)
-      - [Methodology](#methodology)
-  - [Results and Discussion](#results-and-discussion)
-  - [Future Work](#future-work)
-  - [References](#references)
-
-# Aim
+Aim
+===
 
 This project explores if there is a quantifiable difference in the
 Covid-19 responses of Canada and USA as measured through analyzing the
 number of daily new cases and daily new tests being conducted in both
 the countries between March and October 2020.
 
-# Introduction
+Introduction
+============
 
 Coronavirus disease 2019 (COVID-19) is a contagious disease caused by
 the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)
@@ -32,7 +29,7 @@ occurred on the continent. Observing the pandemic’s impact at a country
 level shows a stark contrast in the number of cases and deaths between
 Canada as USA. As of November 27th, 2020, there have been 241,906 deaths
 in the US and 11,799 deaths in Canada as per the countries’ official
-sources (Disease Control and Prevention 2020, @govCA). Even if we
+sources (Disease Control and Prevention 2020) (Canada 2020). Even if we
 account for some factors such as population densities, number of
 international airports, migration of people, climatic factors, etc. to
 understand the varied impact of COVID-19 on Canada and USA it still
@@ -51,7 +48,8 @@ tests being conducted in Canada and USA to understand the response of
 the these two neighbors to one of the deadliest pandemics that the world
 has seen in decades.
 
-# Project Scope
+Project Scope
+=============
 
 Epidemiology is a complex science and there are a myriad factors that
 can shape the course of a pandemic or determine how fatal its impact
@@ -69,19 +67,20 @@ has drawn inspiration from the principles and adages elucidated upon in
 Dr.Peng’s quintessential work, `The Art of Data Science`(Roger D. Peng
 2016).
 
-# Analysis
+Analysis
+========
 
-## The Question
+The Question
+------------
 
 We’ve defined response ratio to be the ratio of the daily new COVID-19
 viral detection tests conducted to the daily new COVID-19 confirmed
 cases.
 
-\[ \texttt{Response Ratio} = \frac{\text{Daily New COVID-19 Viral Detection Tests Conducted Nationally}}{\text{Daily New COVID-19 Confirmed Cases Nationally}} \]
+$$ \\texttt{Response Ratio} = \\frac{\\text{Daily New COVID-19 Viral Detection Tests Conducted Nationally}}{\\text{Daily New COVID-19 Confirmed Cases Nationally}} $$
 
-The statistical question being probed in this project is, `Is there a
-difference in the median daily response ratio of Canada and USA between
-March 1st 2020 and October 31st 2020?`
+The statistical question being probed in this project is,
+`Is there a difference in the median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020?`
 
 The team feels that the question presents an opportunity to meaningfully
 explore COVID-19 data through a simple statistical analysis and stays
@@ -92,22 +91,25 @@ upon further through more robust analyses. The team acknowledges that
 there are several assumptions and limitations associated with this
 analysis and they are discussed in the relevant sections below.
 
-## Data
+Data
+----
 
-The data set used in this project comes from the `Our World in Data
-COVID-19` database created by Hannah Richie et al. (Max Roser and Hasell
-2020). This data set examines the impact of COVID-19 on countries all
-over the world; the data set comprises daily statistics pertaining to
-the pandemic from over 200 countries recorded since December 31st 2019.
-Each row in the data set represents a date in a country, where
-measurements like total cases, new daily cases, hospital admission rates
-etc. are recorded. Data has been collected in conjunction with the World
-Health Organization (WHO), the European Center for Disease Prevention
-and Control (ECDC) and is available on [Our World in
-Data](https://ourworldindata.org/coronavirus) and raw data can be found
+The data set used in this project comes from the
+`Our World in Data COVID-19` database created by Hannah Richie et
+al. (Max Roser and Hasell 2020). This data set examines the impact of
+COVID-19 on countries all over the world; the data set comprises daily
+statistics pertaining to the pandemic from over 200 countries recorded
+since December 31st 2019. Each row in the data set represents a date in
+a country, where measurements like total cases, new daily cases,
+hospital admission rates etc. are recorded. Data has been collected in
+conjunction with the World Health Organization (WHO), the European
+Center for Disease Prevention and Control (ECDC) and is available on
+[Our World in Data](https://ourworldindata.org/coronavirus) and raw data
+can be found
 [here](https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv).
 
-## Assumptions and limitations
+Assumptions and limitations
+---------------------------
 
 1.  We’ve restricted the time-line for consideration to be between March
     1st 2020 and October 31st 2020.
@@ -124,7 +126,8 @@ Data](https://ourworldindata.org/coronavirus) and raw data can be found
 6.  Our analysis seeks to establish a simple comparison with no attempts
     to infer causality and/or other overarching conclusions about either
 
-## Methodology
+Methodology
+-----------
 
 The team performed extensive EDA to wrangle the data and make it
 suitable for further analysis. Details of the EDA process are captured
@@ -149,20 +152,18 @@ The team decided to use permutation based hypothesis testing to answer
 our statistical question. We chose a 95% confidence level for our sample
 estimate i.e a significance threshold level of $ = 0.05 $ .
 
-Our Null(\(H_0\)) and Alternate(\(H_a\)) Hypothesis are:
+Our Null(*H*<sub>0</sub>) and Alternate(*H*<sub>*a*</sub>) Hypothesis
+are:
 
-$ H\_0: The median daily response ratio of Canada and USA between March
-1st 2020 and October 31st 2020 is equal $ $ H\_a: The median daily
-response ratio of Canada and USA between March 1st 2020 and October 31st
-2020 is not equal $
+*H*<sub>0</sub>: The median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is equal
 
+*H*<sub>*a*</sub>: The median daily response ratio of Canada and USA between March 1st 2020 and October 31st 2020 is not equal
 We generated a bootstrap distribution of bootstrap sample median
 response ratios for Canada and USA during the time-line of interest. We
 visualized our booststrap distributions as shown in the figure below.
 
-![](../results/median_simulation.png) Figure 2. Bootstrap Distribution
-of the Difference in Median Daily Response Ratios for USA and Canada
-between March 1st 2020 and October 31st 2020.
+![](../results/median_simulation.png) Figure 2. Simulation based
+Bootstrap Distribution for the Null Hypothesis.
 
 Thereafter, we calculated the p-value for our hypothesis test. The
 results are discussed in the section below.
@@ -172,18 +173,19 @@ programming languages were used to perform the analysis in this project.
 The following R and Python packages were used: knitr (Xie 2014) and
 tidyverse (Wickham 2017). All the code used in the analysis can be found
 at
-<https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src>.
+<a href="https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src" class="uri">https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src</a>.
 
-# Results and Discussion
+Results and Discussion
+======================
 
-The p-value for our test was \<0.0001. Based on this p-value, since it
+The p-value for our test was &lt;0.0001. Based on this p-value, since it
 is much lower than our significance threshold of 0.05 we reject our Null
 Hypothesis that the median daily response ratio of Canada and USA
 between March 1st 2020 and October 31st 2020 is equal.
 
 Our results are summarized in the table below.
 
-Table 1. Results Summary.
+![](../results/summary_table.png) Table 1. Results Summary.
 
 Based on our analysis we can-not categorically say that Canada’s overall
 response strategy towards COVID-19 was more efficient that that of USA;
@@ -197,115 +199,70 @@ random-variability, and sampling-variability (Roger D. Peng 2016) which
 our analysis doesn’t address owing to the scope of the project as
 explained earlier.
 
-# Future Work
+Future Work
+===========
 
 Our analysis can be be built upon further to devise a more sophisticated
 framework to understand COVID-19 responses in Canada and USA. Some of
 the interesting points which would help expand the scope of this project
-include: - Include more robust data, for e.g. finding data for some of
-the missing days in the current data set. - Expand the time-line of
-consideration for the analysis. - Address the auto-correlation caused by
-the temporal nature of the daily data points by using appropriate
-time-series analysis techniques. - Explore more features to include in
-quantifying the `Response Ratio`. - Build a model to take into account
-the other relevant features as discovered in the point above.
+include:
 
-# References
+1.  Include more robust data, for e.g. finding data for some of the
+    missing days in the current data set.
+2.  Expand the time-line of consideration for the analysis.
+3.  Address the auto-correlation caused by the temporal nature of the
+    daily data points by using appropriate time-series analysis
+    techniques.
+4.  Explore more features to include in quantifying the
+    `Response Ratio`.
+5.  Build a model to take into account the other relevant features as
+    discovered in the point above.
 
-<div id="refs" class="references hanging-indent">
-
-<div id="ref-govCA">
+References
+==========
 
 Canada, Government of. 2020. “COVID-19 Situational Awareness Dashboard.”
 <https://health-infobase.canada.ca/covid-19/dashboard/>.
 
-</div>
-
-<div id="ref-cdc">
-
 Disease Control, Centers for, and Prevention. 2020. “COVID-19 Death Data
 and Resources.”
 <https://www.who.int/emergencies/diseases/novel-coronavirus-2019>.
-
-</div>
-
-<div id="ref-first-case">
 
 Holshue, Michelle L., Chas DeBolt, Scott Lindquist, Kathy H. Lofy, John
 Wiesman, Hollianne Bruce, Christopher Spitters, et al. 2020. “First Case
 of 2019 Novel Coronavirus in the United States.” *The New England
 Journal of Medicine* 382 (10): 929–36.
 
-</div>
-
-<div id="ref-covid-score">
-
 Lazarus, Jeffrey V., Scott Ratzan, Adam Palayew, Francesco C. Billari,
 Agnes Binagwaho, Spencer Kimball, Heidi J. Larson, et al. 2020.
-“COVID-Score: A Global Survey to Assess Public Perceptions of
-Government Responses to Covid-19 (Covid-Score-10).” *PLoS One* 15 (10).
+“COVID-Score: A Global Survey to Assess Public Perceptions of Government
+Responses to Covid-19 (Covid-Score-10).” *PLoS One* 15 (10).
 <https://ezproxy.library.ubc.ca/login?url=https://www-proquest-com.ezproxy.library.ubc.ca/docview/2448834819?accountid=14656>.
-
-</div>
-
-<div id="ref-epidemiology">
 
 Li, Jie, Daniel Q. Huang, Biyao Zou, Hongli Yang, Wan Z. Hui, Fajuan
 Rui, Natasha T. S. Yee, et al. 2020. “Epidemiology of Covid‐19: A
 Systematic Review and Meta‐analysis of Clinical Characteristics, Risk
 Factors, and Outcomes.” *Journal of Medical Virology*.
 
-</div>
-
-<div id="ref-owidcoronavirus">
-
 Max Roser, Esteban Ortiz-Ospina, Hannah Ritchie, and Joe Hasell. 2020.
 “Coronavirus Pandemic (Covid-19).” *Our World in Data*.
 
-</div>
-
-<div id="ref-who">
-
 Organization, World Health. 2020. “Novel-Coronavirus-2019.”
 <https://www.cdc.gov/nchs/nvss/vsrr/covid19/index.htm>.
-
-</div>
-
-<div id="ref-R">
 
 R Core Team. 2019. *R: A Language and Environment for Statistical
 Computing*. Vienna, Austria: R Foundation for Statistical Computing.
 <https://www.R-project.org/>.
 
-</div>
-
-<div id="ref-aods">
-
 Roger D. Peng, Elizabeth Matsui. 2016. *The Art of Data Science*.
-
-</div>
-
-<div id="ref-Python">
 
 Van Rossum, Guido, and Fred L. Drake. 2009. *Python 3 Reference Manual*.
 Scotts Valley, CA: CreateSpace.
 
-</div>
-
-<div id="ref-tidyverse">
-
 Wickham, Hadley. 2017. *Tidyverse: Easily Install and Load the
 ’Tidyverse’*. <https://CRAN.R-project.org/package=tidyverse>.
-
-</div>
-
-<div id="ref-knitr">
 
 Xie, Yihui. 2014. “Knitr: A Comprehensive Tool for Reproducible Research
 in R.” In *Implementing Reproducible Computational Research*, edited by
 Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman;
 Hall/CRC. <http://www.crcpress.com/product/isbn/9781466561595>.
-
-</div>
-
-</div>
