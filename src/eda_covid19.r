@@ -45,9 +45,12 @@ main <- function(input_path, out_dir) {
     write_csv(covid_can_usa_summary, paste0(out_dir, "/covid_can_usa_summary.csv"))
     
     #save summary table as a .png file
-    kable(covid_can_usa_summary, caption = "Table 1. Summary Statistics of Response Ratio", 
-          'html', digits = 2, padding = 20) %>%
-      kable_material(c('striped', 'hover')) %>% 
+    kable(covid_can_usa_summary,
+          caption = "Table 1. Summary Statistics of Response Ratio",
+          formst = 'html',
+          digits = 2,
+          padding = 20) %>%
+      kable_material(c('striped', 'hover'), font_size = 30) %>%
       save_kable(paste0(out_dir, "/summary_table.png"))
 
 

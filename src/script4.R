@@ -46,9 +46,11 @@ main <- function(data, sum_data, out_dir) {
 bartlett_test_save<- function(data, out_dir) {
   bartlett.test(response_ratio ~ iso_code, data = data) %>% 
   tidy() %>% 
-  kable(caption = "Table 2. Summary Statistics of Response Ratio", 'html', padding = 20, digits = 2) %>%
-  kable_material(c('striped', 'hover')) %>%
-  kable_styling("striped") %>%
+  kable(caption = "Table 2. Summary Statistics of Response Ratio",
+        format = 'html',
+        padding = 20,
+        digits = 2) %>%
+  kable_material(c('striped', 'hover'), font_size = 30) %>%
   save_kable(paste0(out_dir, "/bartlett_test.png"))
 }
 
@@ -92,8 +94,7 @@ null_dist_save <- function(ratio_bootstraps, ci_threshold, test_stat, out_dir) {
     theme(plot.title = element_text(size = 9),
           axis.title = element_text(size = 7)
     ) +
-    
-    annotate("text", x = -31, y = 150, label = "Test Statistic", color = 'red', size = 2)
+    annotate("text", x = -34, y = 150, label = "Test Statistic", color = 'red', size = 2)
     
     ggsave(filename = (paste0(out_dir,'/median_simulation.png')), width = 4, height = 2.5)
 }
@@ -114,9 +115,8 @@ p_val_save <- function(ratio_bootstraps, test_stat, out_dir){
       select(p_val)
   }
 
-  kable(pval_table, caption = "P-value of Simulated Hypothesis Test", 'html', table.attr = "style='width:10%;'") %>%
-  kable_material(c('striped', 'hover')) %>%
-  kable_styling("striped") %>%
+  kable(pval_table, format='html', padding=0) %>%
+  kable_material(c('striped', 'hover'), font_size = 40) %>%
   save_kable(paste0(out_dir, "/simulation_pval.png"))
 }
   
