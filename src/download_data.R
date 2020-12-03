@@ -12,7 +12,7 @@ library(readr)
 opt <- docopt(doc)
 
 main <- function(url, path) {
-  data = read_csv(url)
+  data <- read_csv(url, guess_max = 5000)
   write_csv(data, path)
 }
 

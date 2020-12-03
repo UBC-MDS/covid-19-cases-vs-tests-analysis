@@ -33,7 +33,7 @@ The mean and median ratio for the USA are close to each other, which suggests th
 The standard deviation of Canada is quite large, compared with the mean and median ratio. It indicates that the response ratio in Canada is more widely spread out. The standard deviation of the USA is a lot smaller, which suggests that more of the ratio is clustered around the mean. It should be noted that the standard deviation might have been affected by data in the early stage of the pandemic, as tests were not fully developed and new cases were only detected within a few communities.
 
 ```{r EDA Table}
-covid_all_country <-  read_csv("../data/owid-covid-data.csv", guess_max = 5000)
+covid_all_country <-  read_csv("../data/raw/owid-covid-data.csv", guess_max = 5000)
 
 covid_CAN_USA <- covid_all_country %>% 
     filter(iso_code=="CAN"| iso_code =="USA") %>% 
