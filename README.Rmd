@@ -35,7 +35,7 @@ the Canada-US responses to COVID-19.
 
 # Report
 
-The final report can be found [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/blob/main/doc/covid-response.pdf)
+The final report can be found [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/blob/main/doc/covid-response.pdf).
 
 # Usage
 
@@ -44,50 +44,12 @@ To replicate the analysis, clone this GitHub repository, install the
 commands at the command line/terminal from the root directory of this
 project:
 
-## Data Downloading/Preprocessing
+    make all 
 
-### Python
+To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
 
-    # download data
-    python src/download_data.py --url=https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv --path=data/raw/owid-covid-data.csv
-   
-    # run pre-process data
-    python src/preprocess_data.py --input=data/raw/owid-covid-data.csv --out_dir=data/processed
-    
-### R 
-   
-    # download data
-    Rscript src/download_data.R --url=https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv --path=data/raw/owid-covid-data.csv
-   
-    # run pre-process data
-    Rscript src/preprocess_data.R --input=data/raw/owid-covid-data.csv --out_dir=data/processed
- 
-## EDA  
+    make clean
 
-### Python  
-    
-    # run eda report
-    jupyter notebook eda/EDA-report-covid-19.ipynb
-    
-    Rscript src/eda_covid19.r --input_path=data/processed --out_dir=eda
-    
-### R
-
-    # run eda report
-    Rscript -e "rmarkdown::render('eda/EDA_analysis.Rmd')"
-  
-    python src/eda_covid19.py --input=data/processed --out_dir=eda
-    
-## Analysis
-
-    # create exploratory data analysis figure and write to file 
-    Rscript src/script4.R --data=data/processed/covid_can_usa.csv --sum_data=results/covid_can_usa_summary.csv --out_dir=results
-
-## Report  
-
-    # render final report
-    Rscript -e "rmarkdown::render('doc/covid-response.Rmd')"
-    
 # Dependencies
 
 -   Python 3.8.5 and Python packages:
@@ -112,7 +74,8 @@ project:
     -   webshot
     -   magick
     -   ggthemes
-    
+- GNU make 4.2.1
+
 # License
 
 The materials on analysis about Covid-19 mean response ratio for Canada
