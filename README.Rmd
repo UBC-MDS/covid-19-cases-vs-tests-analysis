@@ -33,6 +33,10 @@ and outcomes that these two countries have faced during the pandemic. However,
 further analysis is required to better understand the differences present in
 the Canada-US responses to COVID-19. 
 
+# Report
+
+The final report can be found [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/blob/main/doc/covid-response.pdf)
+
 # Usage
 
 To replicate the analysis, clone this GitHub repository, install the
@@ -65,14 +69,14 @@ project:
     # run eda report
     jupyter notebook eda/EDA-report-covid-19.ipynb
     
-    Rscript src/eda_covid19.r --input_path=data/processed --out_dir=results
+    Rscript src/eda_covid19.r --input_path=data/processed --out_dir=eda
     
 ### R
 
     # run eda report
     Rscript -e "rmarkdown::render('eda/EDA_analysis.Rmd')"
   
-    python src/eda_covid19.py --input=data/processed --out_dir=results
+    python src/eda_covid19.py --input=data/processed --out_dir=eda
     
 ## Analysis
 
