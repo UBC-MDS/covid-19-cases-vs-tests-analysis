@@ -17,8 +17,8 @@ results/covid_can_usa_summary.csv results/summary_table.png results/histogram_pl
 	Rscript src/eda_covid19.r --input_path=data/processed/covid_can_usa.csv --out_dir=results
 
 # run statistical analysis and create result figures
-results/bartlett_test.png results/median_simulation.png results/simulation_pval.png : src/script4.R data/processed/covid_can_usa.csv results/covid_can_usa_summary.csv
-	Rscript src/script4.R --data=data/processed/covid_can_usa.csv --sum_data=results/covid_can_usa_summary.csv --out_dir=results
+results/bartlett_test.png results/median_simulation.png results/simulation_pval.png : src/stat_analysis.R data/processed/covid_can_usa.csv results/covid_can_usa_summary.csv
+	Rscript src/stat_analysis.R --data=data/processed/covid_can_usa.csv --sum_data=results/covid_can_usa_summary.csv --out_dir=results
 
 # render report
 doc/covid-response.pdf : doc/covid-response.Rmd doc/covid19.bib results/median_simulation.png results/simulation_pval.png results/histogram_plot.png
