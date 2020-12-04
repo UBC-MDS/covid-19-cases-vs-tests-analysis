@@ -74,7 +74,7 @@ To reset the repo to a clean state, with no intermediate or results files, run t
     -   webshot
     -   magick
     -   ggthemes
-- GNU make 4.3
+- GNU make 4.2.1
 
 # License
 
