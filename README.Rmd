@@ -23,7 +23,7 @@ Data](https://ourworldindata.org/coronavirus) and raw data can be found
 With this data, we ask whether there is a difference in the ratio of the 
 new daily tests performed to the new daily cases between Canada and the 
 United States. Since the distributions were found to be left skewed and 
-of unequal variance (see EDA [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/eda)), 
+of unequal variance (see EDA [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/0.1.0/eda)), 
 we performed a two-tailed hypothesis test checking for 
 the independence of medians using permutation. With a significance level of 
 0.05, we found that there was enough evidence to conclude that the median 
