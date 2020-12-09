@@ -13,15 +13,15 @@ Options:
 
 import calendar
 import os
+import chromedriver_binary
 
 import pandas as pd
 import altair as alt
 from docopt import docopt
 from altair_saver import save
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome()
 
 opt = docopt(__doc__)
 
