@@ -57,7 +57,7 @@ The data set used in this project comes from the `Our World in Data COVID-19` da
 
 The team performed extensive EDA to wrangle the data and make it suitable for further analysis. Details of the EDA process are captured in our reports under the eda folder which can be found [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/eda).
 
-Firstly, we calculated the daily response ratio for both Canada and the USA for the time-line of interest using the daily new_tests and new_cases columns found in the data set. We analyzed the distribution of the daily response ratio for both the countries during the time-line of interest as shown in the figure below. From this distribution, we observed that there were heavy right-skews in both countries. Due to this, we decided to the measure central tendency as the median response ratio instead of the mean.
+Firstly, we calculated the daily response ratio for both Canada and the USA for the time-line of interest using the daily new_tests and new_cases columns found in the data set. We analyzed the distribution of the daily response ratio for both the countries during the time-line of interest as shown in the figure below. From this distribution, we observed that there were heavy right-skews in both countries. Due to this, we decided to measure central tendency as the median response ratio, instead of using the mean.
 
 ![](../results/histogram_plot.png)
 
