@@ -57,9 +57,10 @@ The data set used in this project comes from the `Our World in Data COVID-19` da
 
 The team performed extensive EDA to wrangle the data and make it suitable for further analysis. Details of the EDA process are captured in our reports under the eda folder which can be found [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/eda).
 
-Firstly, we calculated the daily response ratio for both Canada and the USA for the time-line of interest using the daily new_tests and new_cases columns found in the data set. We analyzed the distribution of the daily response ratio for both the countries during the time-line of interest as shown in the figure below.
+Firstly, we calculated the daily response ratio for both Canada and the USA for the time-line of interest using the daily new_tests and new_cases columns found in the data set. We analyzed the distribution of the daily response ratio for both the countries during the time-line of interest as shown in the figure below. From this distribution, we observed that there were heavy right-skews in both countries. Due to this, we decided to the measure central tendency as the median response ratio instead of the mean.
 
 ![](../results/histogram_plot.png)
+
 Figure 1. Sample Distribution of Daily Response Ratio for the USA and Canada between March 1st 2020 and October 31st 2020.
 
 We analyzed and confirmed that there is a difference in the variances of distributions of the daily response ratio data for both Canada and the USA during the time-line of interest through a Bartlett's test. 
@@ -70,12 +71,7 @@ Our Null($H_0$) and Alternate($H_a$) Hypotheses are:
 
 $$ \text {$H_0$: The median daily response ratio of Canada and the USA between March 1st 2020 and October 31st 2020 is equal} $$
 $$ \text {$H_a$: The median daily response ratio of Canada and the USA between March 1st 2020 and October 31st 2020 is not equal} $$
-We generated a bootstrap distribution of bootstrap sample median response ratios for Canada and the USA during the time-line of interest. We visualized our booststrap distributions as shown in the figure below.
-
-![](../results/median_simulation.png)
-Figure 2. Simulation based Bootstrap Distribution for the Null Hypothesis.
-
-Thereafter, we calculated the p-value for our hypothesis test. The results are discussed in the section below.
+We generated a bootstrap distribution of bootstrap sample median response ratios for Canada and the USA during the time-line of interest. Based on this distribution, we calculated the p-value for our hypothesis test. The results are discussed in the section below.
 
 The R [@R] and Python [@Python] programming languages were used to perform the analysis in this project. Several R and Python packages were used, a complete list of package dependencies can be found in the [Readme.md](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/blob/main/README.md). All the code used in the analysis can be found [here](https://github.com/UBC-MDS/covid-19-cases-vs-tests-analysis/tree/main/src). 
 
